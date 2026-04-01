@@ -9,7 +9,7 @@ app = FastAPI(title="ICU Risk Prediction API")
 # -----------------------------------
 # LOAD MLFLOW MODEL (for prediction) and removed  the mlflow dependency from requirements.txt to avoid issues with mlflow in production
 # -----------------------------------
-model = joblib.load_model("models/model.pkl")
+model = joblib.load("models/model.pkl")
 
 # -----------------------------------
 # LOAD RAW MODEL (for probability 🔥)
