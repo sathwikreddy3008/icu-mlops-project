@@ -40,7 +40,6 @@ This project predicts the probability of ICU patient mortality using clinical fe
 
 ### 1. Clone repository
 
-```bash
 git clone https://github.com/sathwikreddy3008/icu-mlops-project.git
 cd icu-mlops-project
 
