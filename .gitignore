@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+.venv/
+
+# Data (avoid large files)
+data/raw/
+data/processed/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# MLflow
+mlruns/
+
+# Notebooks (optional)
+notebooks/
+
+# Large files
+*.csv
