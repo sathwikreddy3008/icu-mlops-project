@@ -1,18 +1,15 @@
 #app.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import mlflow.pyfunc
 import pandas as pd
 import joblib
 
 app = FastAPI(title="ICU Risk Prediction API")
 
 # -----------------------------------
-# LOAD MLFLOW MODEL (for prediction)
+# LOAD MLFLOW MODEL (for prediction) and removed  the mlflow dependency from requirements.txt to avoid issues with mlflow in production
 # -----------------------------------
-model = mlflow.pyfunc.load_model(
-    "models:/icu_risk_model@production"
-)
+model = joblib.load_model("models/model.pkl")
 
 # -----------------------------------
 # LOAD RAW MODEL (for probability 🔥)
