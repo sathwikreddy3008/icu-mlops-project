@@ -45,18 +45,61 @@ Manual assessment can be slow and inconsistent.
 
 ## ⚙️ System Architecture
 
+
+
 ```text
-👤 User
-   ↓
-Streamlit Dashboard (UI)
-   ↓
-FastAPI Backend (API)
-   ↓
-ML Model (XGBoost)
-   ↓
-Prediction + Probability
-   ↓
-Dashboard Visualization
+┌───────────────┐
+│   👤 User      │
+└──────┬────────┘
+       │ Input patient data
+       ▼
+┌────────────────────────────┐
+│ 🌐 Streamlit Dashboard     │
+│ - Input forms              │
+│ - Alerts UI                │
+│ - Risk visualization       │
+└────────┬───────────────────┘
+         │ API Request (POST /predict)
+         ▼
+┌────────────────────────────┐
+│ ⚡ FastAPI Backend         │
+│ - Input validation         │
+│ - Feature alignment        │
+│ - Model inference          │
+└────────┬───────────────────┘
+         │
+         ▼
+┌────────────────────────────┐
+│ 🤖 ML Model Layer          │
+│ - XGBoost Model            │
+│ - Predict + Probability    │
+└────────┬───────────────────┘
+         │
+         ▼
+┌────────────────────────────┐
+│ 📦 Model Artifacts         │
+│ - model.pkl                │
+│ - feature_columns.pkl      │
+└────────┬───────────────────┘
+         │
+         ▼
+┌────────────────────────────┐
+│ 📊 Response JSON           │
+│ {prediction, probability}  │
+└────────┬───────────────────┘
+         │
+         ▼
+┌────────────────────────────┐
+│ 🎯 Streamlit Dashboard     │
+│ - Risk %                   │
+│ - Alerts                   │
+│ - Gauge chart              │
+└────────┬───────────────────┘
+         │
+         ▼
+┌───────────────┐
+│ 👤 User Output │
+└───────────────┘
 ```
 
 ---
