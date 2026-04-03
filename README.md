@@ -1,76 +1,218 @@
-ICU Risk Prediction System
+# 🧠 ICU Mortality Prediction System (MLOps)
 
-An end-to-end Machine Learning + MLOps project to predict ICU patient risk using real-world clinical data.
+> Clinical Decision Support System for ICU Risk Prediction using Machine Learning
 
----
-
-## Overview
-
-This project predicts the probability of ICU patient mortality using clinical features such as vitals, diagnoses, and medications. It integrates data engineering, machine learning, API deployment, and an interactive dashboard.
+🌐 **Live App:** https://icu-mlops-project.streamlit.app/
+📦 **Repo:** https://github.com/sathwikreddy3008/icu-mlops-project
 
 ---
 
-##  Features
+## 🚀 Overview
 
-- Built using MIMIC-III clinical dataset  
-- Feature engineering with 70+ clinical features  
-- XGBoost model (ROC-AUC ~0.91)  
-- FastAPI backend for real-time prediction  
-- Streamlit dashboard for visualization  
-- Clinical alert system (High BP, Low SPO2, etc.)  
-- Risk gauge and patient monitoring  
-- History tracking of predictions  
+This project is an **end-to-end Machine Learning system** designed to predict patient mortality risk in Intensive Care Units (ICU) using clinical data.
 
----
+It integrates:
 
-##  Tech Stack
+* 📊 Data Engineering
+* 🧠 Machine Learning
+* ⚙️ Backend APIs
+* 🎨 Interactive Dashboard
 
-- Python  
-- Pandas  
-- Scikit-learn  
-- XGBoost  
-- FastAPI  
-- Streamlit  
-- MLflow  
-- Plotly  
+👉 Built using the **MIMIC-III clinical dataset**, the system helps in **early risk detection and decision support**.
 
 ---
 
-##  How to Run
+## 🏥 Problem Statement
 
-### 1. Clone repository
+ICU patients require **continuous monitoring and early risk identification**.
+Manual assessment can be slow and inconsistent.
 
-git clone https://github.com/sathwikreddy3008/icu-mlops-project.git
-cd icu-mlops-project
+💡 This system:
 
+* Predicts **mortality risk probability**
+* Classifies patients into **Low / Medium / High risk**
+* Generates **clinical alerts for abnormal vitals**
 
-### 2. Install dependencies
+---
 
-pip install -r requirements.txt
+## 🧠 Model Performance
 
+* 🚀 Model: **XGBoost**
+* 📈 ROC-AUC: **~0.91**
+* 🧩 Features: **70+ engineered clinical features**
 
-### 3. Run backend (FastAPI)
+---
 
-uvicorn app:app --reload
+## ⚙️ System Architecture
 
-### 4. Run dashboard (Streamlit)
+```text
+👤 User
+   ↓
+Streamlit Dashboard (UI)
+   ↓
+FastAPI Backend (API)
+   ↓
+ML Model (XGBoost)
+   ↓
+Prediction + Probability
+   ↓
+Dashboard Visualization
+```
 
-Streamlit run dashboard.py
+---
 
-----
+## 🧩 Tech Stack
 
-## Project structure
+* **Languages:** Python
+* **ML:** Scikit-learn, XGBoost
+* **Data:** Pandas
+* **Backend:** FastAPI
+* **Frontend:** Streamlit
+* **Experiment Tracking:** MLflow
 
+---
+
+## 📊 Input Features
+
+### 👤 Patient Demographics
+
+* Age
+* ICU Stay Duration
+* Diagnoses Count
+* Unique Diseases
+* Medications
+
+### ❤️ Vital Signs
+
+* SpO₂ (%)
+* Heart Rate (bpm)
+* Temperature (°C)
+
+### 🏥 Clinical Parameters
+
+* Systolic BP
+* Respiratory Rate
+* Vasopressor (Yes/No)
+* Antibiotics (Yes/No)
+
+---
+
+## 📸 Application Screenshots
+
+### 🔹 Dashboard Input
+
+![Dashboard](./assets/dashboard.png)
+
+### 🔹 Prediction Results
+
+![Results](./assets/results.png)
+
+### 🔹 Alerts & History
+
+![Alerts](./assets/alerts.png)
+
+---
+
+## 🔍 Key Features
+
+* ✅ End-to-end ML pipeline
+* ✅ Real-time prediction using FastAPI
+* ✅ Interactive UI with Streamlit
+* ✅ Risk probability visualization
+* ✅ Clinical alert system (SpO₂, BP, HR, etc.)
+* ✅ Prediction history tracking
+
+---
+
+## 📂 Project Structure
+
+```bash
 icu-mlops-project/
 │
-├── src/
-│   ├── ingestion/
-│   ├── features/
-│   ├── pipelines/
-│   ├── models/
+├── app.py                  # FastAPI backend
+├── dashboard.py            # Streamlit UI
+├── train.py                # Model training
 │
-├── app.py
-├── dashboard.py
-├── requirements.txt
-├── models/
-└── README.md
+├── models/                 # Saved models
+├── data/                   # Raw & processed data
+├── notebooks/              # EDA
+├── src/                    # Processing & utilities
+│
+└── requirements.txt
+```
+
+---
+
+## ⚙️ How to Run Locally
+
+### 1️⃣ Clone repo
+
+```bash
+git clone https://github.com/sathwikreddy3008/icu-mlops-project
+cd icu-mlops-project
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3️⃣ Run FastAPI backend
+
+```bash
+uvicorn app:app --reload
+```
+
+### 4️⃣ Run Streamlit UI
+
+```bash
+streamlit run dashboard.py
+```
+
+---
+
+## 🔌 API Endpoint
+
+### POST `/predict`
+
+**Input:**
+
+```json
+{
+  "age": 65,
+  "heart_rate": 95,
+  "spo2": 92
+}
+```
+
+**Output:**
+
+```json
+{
+  "risk_probability": 0.13,
+  "risk_level": "Low"
+}
+```
+
+---
+
+## 📈 Future Improvements
+
+* 🔄 CI/CD pipeline
+* ☁️ Full cloud deployment (Azure)
+* 📊 Real-time streaming data
+* 🧠 Deep learning models
+* 📱 Mobile-friendly UI
+
+---
+
+## 🤝 Contribution
+
+Feel free to fork, improve, and contribute 🚀
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
