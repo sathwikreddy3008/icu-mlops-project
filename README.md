@@ -172,16 +172,34 @@ Manual assessment can be slow and inconsistent.
 ```bash
 icu-mlops-project/
 │
-├── app.py                  # FastAPI backend
-├── dashboard.py            # Streamlit UI
-├── train.py                # Model training
+├── app.py                  # FastAPI backend (API)
+├── dashboard.py            # Streamlit frontend (UI)
+├── train.py                # Model training script
+├── requirements.txt        # Dependencies
+├── README.md               # Project documentation
 │
 ├── models/                 # Saved models
-├── data/                   # Raw & processed data
-├── notebooks/              # EDA
-├── src/                    # Processing & utilities
+│   ├── model.pkl
+│   ├── xgb_model.pkl
+│   └── feature_columns.pkl
 │
-└── requirements.txt
+├── data/                   # Data files
+│   ├── raw/
+│   │   └── (original MIMIC files)
+│   ├── processed/
+│   │   └── icu_features_final.csv
+│   └── patient_history.csv   # Generated from dashboard
+│
+├── notebooks/              # EDA & experiments
+│   └── eda.ipynb
+│
+├── src/ (optional clean code structure)
+│   ├── data_processing.py
+│   ├── feature_engineering.py
+│   └── utils.py
+│
+├── .gitignore
+└── .venv/ (ignored)
 ```
 
 ---

@@ -425,7 +425,10 @@ st.markdown("""
 
 if st.button("ANALYSE PATIENT RISK  →", use_container_width=True):
 
-    with st.spinner("Running XGBoost inference…"):
+    with st.spinner(
+    "Running XGBoost inference...\n"
+    "\nIf you encounter an API error, please try again — the service may still be initializing."
+    ):
         try:
             res    = requests.post(API_URL, json=data, timeout=60)
             result = res.json()
